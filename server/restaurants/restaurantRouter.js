@@ -1,18 +1,33 @@
 'use strict';
 const logger = require('./../../applogger');
 const router = require('express').Router();
+const {restaurant} = require('./restaurantEntity');
 // const userCtrl = require('./userController');
 
-router.post('/add', function(req, res) {
-    logger.debug("Inside user post");
-    let user = req.body;
-    res.send('Hello '+JSON.stringify(user));
+router.post('/add', (req, res) => {
+    let newRestaurant = new restaurant({
+      resId : req.body.resId,
+      resLoc : req.body.resLoc,
+      resAddr : req.body.resAddr
+    });
+    newRestaurant.save().then((docs) => {
+      logger.debug(docs);
+      res.send(docs);
+    }, (err) => {
+      res.status(400).send(err);
+      logger.debug('error occurred while adding');
+    });
 });
 
-// Get details of all user in the system
 router.get('/', function(req, res) {
   console.log('Inside get');
-  res.send('response from user GET route check');
+  restaurant.find().then((docs) => {
+      res.send(docs);
+      logger.debug(docs);
+  },(err) => {
+    res.status(400).send(err);
+    logger.debug(err);
+  });
 });
 
 router.put('/update', (req, res) => {
