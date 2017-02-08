@@ -1,13 +1,14 @@
 'use strict';
 const logger = require('./../../applogger');
-const {user} = require('./userEntity');
+const {restaurant} = require('./restaurantEntity');
 
-var addUser = (req, res) => {
-  let newUser = new user({
-    username : req.body.username,
-    password : req.body.password
+var addRestaurant = (req, res) => {
+  let newRestaurant = new restaurant({
+    resId : req.body.resId,
+    resLoc : req.body.resLoc,
+    resAddr : req.body.resAddr
   });
-  newUser.save().then((docs) => {
+  newRestaurant.save().then((docs) => {
     logger.debug(docs);
     res.send(docs);
   }, (err) => {
@@ -16,9 +17,9 @@ var addUser = (req, res) => {
   });
 };
 
-var viewUser = (req, res) => {
+var viewRestaurant = (req, res) => {
   console.log('Inside get');
-  user.find().then((docs) => {
+  restaurant.find().then((docs) => {
       res.send(docs);
       logger.debug(docs);
   },(err) => {
@@ -27,12 +28,12 @@ var viewUser = (req, res) => {
   });
 };
 
-var updateUser = (req, res) => {
-  let newPassword = req.body.password;
-  console.log(newPassword);
-  user.findByIdAndUpdate(req.params.id,{
+var updateRestaurant = (req, res) => {
+  let newLocation = req.body.resLoc;
+  console.log(newLocation);
+  restaurant.findByIdAndUpdate(req.params.id,{
     $set:{
-      password: newPassword
+      resLoc: newLocation
     }
   }).then((docs) => {
     res.send(docs+"update successfully");
@@ -41,8 +42,8 @@ var updateUser = (req, res) => {
   })
 };
 
-var deleteUser = (req, res) => {
-  user.findByIdAndRemove(req.params.id).then((docs)=>{
+var deleteRestaurant = (req, res) => {
+  restaurant.findByIdAndRemove(req.params.id).then((docs)=>{
     if(!docs) {
       return console.log('id not found');
     }
@@ -51,11 +52,11 @@ var deleteUser = (req, res) => {
   },(err)=> {
     res.status(400).send(err);
   })
-};
+}
 
 module.exports = {
-  addUser,
-  viewUser,
-  updateUser,
-  deleteUser
+  addRestaurant,
+  viewRestaurant,
+  updateRestaurant,
+  deleteRestaurant
 }

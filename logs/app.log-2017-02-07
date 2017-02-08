@@ -1,0 +1,6 @@
+[07 02 2017 04:05:34.024] [DEBUG] - [ { _id: 58984d4d5c15671256e0a0f5,
+    username: 'Arun',
+    password: 'arunmohanraj',
+    __v: 0 } ]
+[07 02 2017 04:37:06.267] [DEBUG] - Mongoose is now disconnected..!
+[07 02 2017 04:39:05.733] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp

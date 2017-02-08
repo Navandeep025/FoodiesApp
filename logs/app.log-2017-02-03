@@ -1,0 +1,30 @@
+[03 02 2017 14:19:05.520] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[03 02 2017 14:19:58.178] [DEBUG] - Mongoose is now disconnected..!
+[03 02 2017 16:22:58.506] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[03 02 2017 16:28:01.149] [DEBUG] - Inside user post
+[03 02 2017 16:29:38.787] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[03 02 2017 16:30:06.752] [DEBUG] - Inside user post
+[03 02 2017 16:30:06.835] [DEBUG] - { __v: 0,
+  resId: 1,
+  resLoc: 'Bengaluru',
+  resAddr: 'wipro gate,Electronic city,Bengaluru',
+  _id: 5894b00ed5d33e378be9278c }
+[03 02 2017 16:34:38.932] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[03 02 2017 16:35:29.006] [DEBUG] - Inside user post
+[03 02 2017 16:35:29.049] [DEBUG] - { __v: 0,
+  resId: 1,
+  resLoc: 'Koramangala',
+  resAddr: 'Forum mall,Madivala,Bengaluru',
+  _id: 5894b151fff7a037e7cbf9d3 }
+[03 02 2017 16:48:21.785] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[03 02 2017 16:48:31.555] [DEBUG] - [ { _id: 5894b00ed5d33e378be9278c,
+    resId: 1,
+    resLoc: 'Bengaluru',
+    resAddr: 'wipro gate,Electronic city,Bengaluru',
+    __v: 0 },
+  { _id: 5894b151fff7a037e7cbf9d3,
+    resId: 1,
+    resLoc: 'Koramangala',
+    resAddr: 'Forum mall,Madivala,Bengaluru',
+    __v: 0 } ]
+[03 02 2017 16:49:52.389] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp

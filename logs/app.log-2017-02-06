@@ -1,0 +1,59 @@
+[06 02 2017 04:48:59.701] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[06 02 2017 04:49:54.561] [DEBUG] - [ { _id: 5894b151fff7a037e7cbf9d3,
+    resId: 1,
+    resLoc: 'madras',
+    resAddr: 'Forum mall,Madivala,Bengaluru',
+    __v: 0 } ]
+[06 02 2017 04:51:22.836] [DEBUG] - { __v: 0,
+  resLoc: 'Koramangala',
+  resAddr: 'Orion mall,near ISKON,Bengaluru',
+  _id: 589800ca49895e0f021e33db }
+[06 02 2017 04:51:35.064] [DEBUG] - [ { _id: 5894b151fff7a037e7cbf9d3,
+    resId: 1,
+    resLoc: 'madras',
+    resAddr: 'Forum mall,Madivala,Bengaluru',
+    __v: 0 },
+  { _id: 589800ca49895e0f021e33db,
+    resLoc: 'Koramangala',
+    resAddr: 'Orion mall,near ISKON,Bengaluru',
+    __v: 0 } ]
+[06 02 2017 04:51:57.645] [DEBUG] - Mongoose is now disconnected..!
+[06 02 2017 10:06:12.851] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[06 02 2017 10:07:39.995] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[06 02 2017 10:07:46.408] [DEBUG] - [ { _id: 5894b151fff7a037e7cbf9d3,
+    resId: 1,
+    resLoc: 'madras',
+    resAddr: 'Forum mall,Madivala,Bengaluru',
+    __v: 0 },
+  { _id: 589800ca49895e0f021e33db,
+    resLoc: 'Koramangala',
+    resAddr: 'Orion mall,near ISKON,Bengaluru',
+    __v: 0 } ]
+[06 02 2017 10:09:08.570] [DEBUG] - { __v: 0,
+  resLoc: 'salem',
+  resAddr: '4 roads,arisipalayam,salem',
+  _id: 58984b445ce0b7121cdcfe63 }
+[06 02 2017 10:09:19.400] [DEBUG] - [ { _id: 5894b151fff7a037e7cbf9d3,
+    resId: 1,
+    resLoc: 'madras',
+    resAddr: 'Forum mall,Madivala,Bengaluru',
+    __v: 0 },
+  { _id: 589800ca49895e0f021e33db,
+    resLoc: 'Koramangala',
+    resAddr: 'Orion mall,near ISKON,Bengaluru',
+    __v: 0 },
+  { _id: 58984b445ce0b7121cdcfe63,
+    resLoc: 'salem',
+    resAddr: '4 roads,arisipalayam,salem',
+    __v: 0 } ]
+[06 02 2017 10:17:37.694] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp
+[06 02 2017 10:17:49.379] [DEBUG] - { __v: 0,
+  username: 'Arun',
+  password: 'arunmohanraj',
+  _id: 58984d4d5c15671256e0a0f5 }
+[06 02 2017 10:18:17.508] [DEBUG] - [ { _id: 58984d4d5c15671256e0a0f5,
+    username: 'Arun',
+    password: 'arunmohanraj',
+    __v: 0 } ]
+[06 02 2017 11:01:32.890] [DEBUG] - Mongoose is now disconnected..!
+[06 02 2017 11:20:17.748] [DEBUG] - Mongoose is now connected to  mongodb://127.0.0.1:27017/zomatoapp

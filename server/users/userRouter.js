@@ -1,18 +1,24 @@
 'use strict';
 const logger = require('./../../applogger');
 const router = require('express').Router();
-//const userCtrl = require('./userController');
+const {user} = require('./userEntity');
+const userCtrl = require('./userController');
 
-router.post('/add', function(req, res) {
-    logger.debug("Inside user post");
-    let user = req.body;
-    res.send('Hello '+user);
+router.post('/add', (req, res) => {
+  userCtrl.addUser(req, res);
 });
 
-// Get details of all user in the system
 router.get('/', function(req, res) {
-  console.log('Inside get');
-  res.send('response from user GET route check');
+  userCtrl.viewUser(req, res);
 });
+
+router.patch('/update/:id', (req, res) => {
+  userCtrl.updateUser(req, res);
+});
+
+router.delete('/delete/:id', (req, res) => {
+  userCtrl.deleteUser(req, res);
+});
+
 
 module.exports = router;

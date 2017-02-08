@@ -8,5 +8,5 @@ let schema = new mongoose.Schema({
 let userCredentials = mongoose.model('userCredentials', schema);
 
 module.exports = {
-  userCredentials
+  user : userCredentials
 }
