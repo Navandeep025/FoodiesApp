@@ -1,23 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Input } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 class childComponent extends React.Component {
 	constructor () {
 		super();
+		this.state = {
+			location: '',
+			cuisine: ''
+		}
+		this.changeLocation = this.changeLocation.bind(this);
+		this.changeCuisine = this.changeCuisine.bind(this);
 	}
-
-	static defaultProps = {
-		message : 'hii Arun - a default value'
+	changeLocation(e) {
+		this.setState({
+			location: e.target.value
+		});
+	}
+	changeCuisine(e) {
+		this.setState({
+			cuisine: e.target.value
+		});
 	}
 	clickChange(){
-		this.props.change();
+		this.props.restaurantData(this.state.location, this.state.cuisine);
+
 	}
+
 	render () {
 		return (
 			<div>
-				<h2>Hello from child</h2>
-				<h1>{this.props.message}</h1>
-				<button onClick={this.clickChange.bind(this)}>click</button>
+  			<Input className='input1 topbar' autoFocus type='text' ref = 'location' placeholder='location...' onChange={this.changeLocation}/>
+	  		<Input className='input2 topbar' type='text' ref = 'cuisine' placeholder='cuisine...'  onChange={this.changeCuisine}/>
+				<Button className='search topbar' onClick={this.clickChange.bind(this)} color='red'>Search</Button>
 			</div>
 		);
 	}
