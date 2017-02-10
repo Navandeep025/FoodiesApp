@@ -9,7 +9,8 @@ class MyFavourites extends React.Component{
     this.state = {
       objArray : []
     }
-    this.getFavourites.bind(this);
+    this.getFavourites = this.getFavourites.bind(this);
+    this.change = this.change.bind(this);
   }
 
   getFavourites() {
@@ -38,12 +39,16 @@ class MyFavourites extends React.Component{
   componentDidMount() {
     this.getFavourites();
   }
+  change(){
+    this.getFavourites();
+  }
   render () {
     let values = this.state.objArray;
+    let refresh = this.change;
 		let cards = values.map(function(item) {
 				return (
 			<div>
-					<MyCard image={item.imageurl} name={item.resName} cuisines={item.resCuisines} address={item.resAddress} rating={item.resRating} votes={item.resVotes}/>
+					<MyCard resid={item._id} image={item.imageurl} name={item.resName} change={refresh} cuisines={item.resCuisines} address={item.resAddress} rating={item.resRating} votes={item.resVotes} detail="fav"/>
 			</div>
 			);
 		});
@@ -56,6 +61,5 @@ class MyFavourites extends React.Component{
 		</div>
 		);
 	}
-
 }
 module.exports = MyFavourites;

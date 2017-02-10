@@ -16,7 +16,7 @@ router.patch('/update/:id', (req, res) => {
     resCtrl.updateRestaurant(req, res);
 });
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete', (req, res) => {
     resCtrl.deleteRestaurant(req, res);
 });
 

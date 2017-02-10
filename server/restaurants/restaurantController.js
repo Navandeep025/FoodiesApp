@@ -9,6 +9,7 @@ var addRestaurant = (req, res) => {
         res.send(docs);
     }, (err) => {
         res.status(400).send(err);
+        logger.debug(err);
         logger.debug('error occurred while adding');
     });
 };
@@ -39,7 +40,7 @@ var updateRestaurant = (req, res) => {
 };
 
 var deleteRestaurant = (req, res) => {
-    restaurant.findByIdAndRemove(req.params.id).then((docs) => {
+    restaurant.remove({_id : req.body.id}).then((docs) => {
         if (!docs) {
             return console.log('id not found');
         }

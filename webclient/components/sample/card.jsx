@@ -7,10 +7,11 @@ class MyCard extends React.Component{
   constructor(){
     super();
     this.sendData=this.sendData.bind(this);
+    this.deleteData = this.deleteData.bind(this);
   }
-
-  sendData(){
+  sendData() {
     let resdata = {
+      _id : this.props.resid,
       imageurl : this.props.image,
       resName : this.props.name,
       resCuisines : this.props.cuisines,
@@ -31,7 +32,32 @@ class MyCard extends React.Component{
         }.bind(this)
     });
   }
+
+  deleteData(){
+    let dataid = {
+      id : this.props.resid
+    }
+    console.log(this.props.resid);
+    $.ajax({
+      url : "http://localhost:8080/restaurants/delete",
+      type : 'DELETE',
+      data : dataid,
+      success: function(data) {
+          console.log(data);
+        }.bind(this),
+      error: function(xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+    });
+  }
+
   render(){
+    let detail = this.props.detail;
+    let refresh = '';
+    if(detail === 'fav')
+    {
+      refresh = this.props.change;
+    }
       return(
       <Card className='cards'>
         <Image src={this.props.image} className='cardImage'/>
@@ -46,7 +72,7 @@ class MyCard extends React.Component{
               {this.props.rating}/{this.props.votes} Votes
             </a>
         </Card.Content>
-        <ButtonComp save={this.sendData.bind(this)} display='Add Favourite'/>
+        <ButtonComp save={this.sendData.bind(this)} change = {refresh} delete={this.deleteData.bind(this)} detail={this.props.detail} display='Add Favourite'/>
       </Card>
     );
   }

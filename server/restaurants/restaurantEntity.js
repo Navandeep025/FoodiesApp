@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 var schema = new mongoose.Schema({
+  _id : String,
   imageurl: String,
   resName: {
     type:String,

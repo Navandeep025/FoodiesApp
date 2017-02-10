@@ -15,7 +15,7 @@ class GrandChild extends React.Component {
 		let cards = this.props.requiredData.map(function(item) {
 				return (
 			<div>
-					<MyCard image={item.restaurant.featured_image} name={item.restaurant.name} cuisines={item.restaurant.cuisines} address={item.restaurant.location.address} rating={item.restaurant.user_rating.aggregate_rating} votes={item.restaurant.user_rating.votes}/>
+					<MyCard resid={item.restaurant.R.res_id} image={item.restaurant.featured_image} name={item.restaurant.name} cuisines={item.restaurant.cuisines} address={item.restaurant.location.address} rating={item.restaurant.user_rating.aggregate_rating} votes={item.restaurant.user_rating.votes} detail="main"/>
 			</div>
 			);
 		});
