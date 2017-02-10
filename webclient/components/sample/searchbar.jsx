@@ -12,6 +12,7 @@ class childComponent extends React.Component {
 		}
 		this.changeLocation = this.changeLocation.bind(this);
 		this.changeCuisine = this.changeCuisine.bind(this);
+		this.clickChange = this.clickChange.bind(this);
 	}
 	changeLocation(e) {
 		this.setState({

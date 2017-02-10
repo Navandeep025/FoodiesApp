@@ -3,7 +3,7 @@ const logger = require('./../../applogger');
 const {restaurant} = require('./restaurantEntity');
 
 var addRestaurant = (req, res) => {
-    let newRestaurant = new restaurant({resId: req.body.resId, resLoc: req.body.resLoc, resAddr: req.body.resAddr});
+    let newRestaurant = new restaurant(req.body);
     newRestaurant.save().then((docs) => {
         logger.debug(docs);
         res.send(docs);

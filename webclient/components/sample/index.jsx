@@ -1,3 +1,3 @@
-import Child from './child.jsx';
+import Child from './searchbar.jsx';
 
 module.exports = Child;
