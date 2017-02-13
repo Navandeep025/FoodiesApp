@@ -39,16 +39,25 @@ class MyFavourites extends React.Component{
   componentDidMount() {
     this.getFavourites();
   }
-  change(){
-    this.getFavourites();
+  change(key, comment) {
+    if(comment === 'fav')
+    {
+      this.state.objArray.splice(key,1);
+      this.setState({objArray: this.state.objArray});
+    }
+    else {
+      this.state.objArray[key].comments = comment;
+      this.setState({objArray: this.state.objArray});
+    }
   }
   render () {
     let values = this.state.objArray;
     let refresh = this.change;
 		let cards = values.map(function(item) {
+      let values = arguments[1];
 				return (
 			<div>
-					<MyCard resid={item._id} image={item.imageurl} name={item.resName} comments={item.comments} change={refresh} cuisines={item.resCuisines} address={item.resAddress} rating={item.resRating} votes={item.resVotes} detail="fav"/>
+					<MyCard resid={item._id} index={values} image={item.imageurl} name={item.resName} comments={item.comments} change={refresh} cuisines={item.resCuisines} address={item.resAddress} rating={item.resRating} votes={item.resVotes} detail="fav"/>
 			</div>
 			);
 		});

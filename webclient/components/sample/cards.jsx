@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Card, Icon, Image, Button } from 'semantic-ui-react';
-import ButtonComp from './button.jsx';
+import { Card } from 'semantic-ui-react';
 import MyCard from './card.jsx';
 
 class GrandChild extends React.Component {
@@ -31,4 +29,19 @@ class GrandChild extends React.Component {
 	}
 }
 
+GrandChild.propTypes = {
+        comments: React.PropTypes.string.isRequired,
+        rating: React.PropTypes.string.isRequired,
+        votes: React.PropTypes.string.isRequired,
+        cuisines: React.PropTypes.string.isRequired,
+        name: React.PropTypes.string.isRequired,
+        image: React.PropTypes.string.isRequired,
+        address: React.PropTypes.string.isRequired,
+        id: React.PropTypes.string.isRequired,
+        change: React.PropTypes.string.isRequired,
+        detail: React.PropTypes.string.isRequired,
+        resid: React.PropTypes.string.isRequired,
+        url: React.PropTypes.string.isRequired,
+        requiredData: React.PropTypes.object.isRequired
+};
 module.exports = GrandChild;

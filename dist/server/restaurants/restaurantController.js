@@ -1,9 +1,9 @@
 'use strict';
 const logger = require('./../../applogger');
-const {restaurant} = require('./restaurantEntity');
+const {Restaurant} = require('./restaurantEntity');
 
-var addRestaurant = (req, res) => {
-    let newRestaurant = new restaurant(req.body);
+let addRestaurant = (req, res) => {
+    let newRestaurant = new Restaurant(req.body);
     newRestaurant.save().then((docs) => {
         logger.debug(docs);
         res.send(docs);
@@ -14,9 +14,9 @@ var addRestaurant = (req, res) => {
     });
 };
 
-var viewRestaurant = (req, res) => {
-    console.log('Inside get');
-    restaurant.find().then((docs) => {
+let viewRestaurant = (req, res) => {
+    logger.debug('Inside get');
+    Restaurant.find().then((docs) => {
         res.send(docs);
         logger.debug(docs);
     }, (err) => {
@@ -25,10 +25,10 @@ var viewRestaurant = (req, res) => {
     });
 };
 
-var updateRestaurant = (req, res) => {
+let updateRestaurant = (req, res) => {
     let newComment = req.body.comments;
     console.log('my comment is :'+newComment);
-    restaurant.findOneAndUpdate({_id:req.body.id}, {
+    Restaurant.findOneAndUpdate({_id:req.body.id}, {
         $set: {comments: req.body.comments}
     },function(err,docs) {
         res.send(docs + "update successfully");
@@ -37,21 +37,21 @@ var updateRestaurant = (req, res) => {
     })
 };
 
-var deleteRestaurant = (req, res) => {
-    restaurant.remove({_id : req.body.id}).then((docs) => {
+let deleteRestaurant = (req, res) => {
+    Restaurant.remove({_id: req.body.id}).then((docs) => {
         if (!docs) {
             return console.log('id not found');
         }
-        res.send(docs);
         logger.debug('deleted successfully');
+        res.send(docs);
     }, (err) => {
         res.status(400).send(err);
-    })
-}
+    });
+};
 
 module.exports = {
     addRestaurant,
     viewRestaurant,
     updateRestaurant,
     deleteRestaurant
-}
+};

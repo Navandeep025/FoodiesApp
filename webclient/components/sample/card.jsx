@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Icon, Image} from 'semantic-ui-react';
 import ButtonComp from './button.jsx';
 import { Input } from 'semantic-ui-react';
+// const logger = require('./../../applogger');
 
 class MyCard extends React.Component {
   constructor() {
@@ -13,6 +14,7 @@ class MyCard extends React.Component {
     this.deleteData = this.deleteData.bind(this);
     this.updateData = this.updateData.bind(this);
     this.changeComment = this.changeComment.bind(this);
+    this.clear = this.clear.bind(this);
   }
   static defaultProps = {comments: ''}
   sendData() {
@@ -26,61 +28,68 @@ class MyCard extends React.Component {
       resVotes: this.props.votes,
       comments: this.state.comments
     };
-    console.log(JSON.stringify(resdata, undefined, 2));
+    console.log(JSON.stringify(resdata));
     $.ajax({
-      url: "http://localhost:8080/restaurants/add",
+      url: 'http://localhost:8080/restaurants/add',
       type: 'POST',
       data: resdata,
       success: function(data) {
           console.log(data);
         }.bind(this),
       error: function(xhr, status, err) {
-          console.error(this.props.url, status, err.toString());
+          console.log(this.props.url, status, err.toString());
         }.bind(this)
     });
   }
 
-  deleteData(){
+  deleteData() {
     let dataid = {
       id: this.props.resid
-    }
+    };
     console.log(this.props.resid);
     $.ajax({
-      url: "http://localhost:8080/restaurants/delete",
+      url: 'http://localhost:8080/restaurants/delete',
       type: 'DELETE',
       data: dataid,
       success: function(data) {
           console.log(data);
         }.bind(this),
       error: function(xhr, status, err) {
-          console.error(this.props.url, status, err.toString());
+          console.log(this.props.url, status, err.toString());
         }.bind(this)
     });
   }
-
+  componentDidMount(){
+    this.setState({comments:this.props.comments});
+  }
   updateData() {
     let dataid = {
-      id : this.props.resid,
+      id: this.props.resid,
       comments: this.state.comments
-    }
+    };
     console.log(this.props.resid);
     console.log(this.state.comments);
     $.ajax({
-      url : "http://localhost:8080/restaurants/update",
-      type : 'PUT',
-      data : dataid,
+      url: 'http://localhost:8080/restaurants/update',
+      type: 'PUT',
+      data: dataid,
       success: function(data) {
           console.log(data);
         }.bind(this),
-      error: function(xhr, status, err) {
-          // console.error(this.props.url, status, err.toString());
+      error: function(err) {
+          console.log(err.toString());
         }.bind(this)
     });
   }
-  changeComment(e){
-    console.log('target :',e.target.value);
+  changeComment(e) {
+    console.log('target :', e.target.value);
     let comments = e.target.value;
     this.setState({comments: comments});
+  }
+
+  clear()
+  {
+    $('input[type="text"]').val('');
   }
 
   render() {
@@ -90,12 +99,12 @@ class MyCard extends React.Component {
     let enteredComment = '';
     if(detail === 'fav')
     {
-      inputComment = <Input type='text' id='inputComment' placeholder='comments here...' onChange={this.changeComment}></Input>
+      inputComment = <Input type='text' id='inputComment' placeholder='comments here...' onChange={this.changeComment}/>
       refresh = this.props.change;
     }
-    if(this.state.comments !== '') {
-      enteredComment = <p>{this.props.comments}</p>
-    }
+    // if(this.state.comments !== '') {
+    //   enteredComment = <p> { this.state.comments } </p>
+    // }
       return(
       <Card className='cards'>
         <Image src={this.props.image} className='cardImage'/>
@@ -103,7 +112,7 @@ class MyCard extends React.Component {
             <Card.Header>{this.props.name}</Card.Header>
             <Card.Meta>{this.props.cuisines}</Card.Meta>
             <Card.Description className='description'>{this.props.address}</Card.Description>
-            {enteredComment}
+            {/* {enteredComment} */}
             {this.props.comments}
         </Card.Content>
         {inputComment}
@@ -113,10 +122,25 @@ class MyCard extends React.Component {
               {this.props.rating}/{this.props.votes} Votes
             </a>
         </Card.Content>
-        <ButtonComp save={this.sendData.bind(this)} change = {refresh} delete={this.deleteData.bind(this)} update={this.updateData.bind(this)} detail={this.props.detail} display='Add Favourite'/>
+        <ButtonComp save={this.sendData.bind(this)} comment={this.state.comments} index= {this.props.index} change = {refresh} delete={this.deleteData.bind(this)} clear = {this.clear} update={this.updateData.bind(this)} detail={this.props.detail} display='Add Favourite'/>
       </Card>
     );
   }
 }
 
+MyCard.propTypes = {
+        comments: React.PropTypes.string.isRequired,
+        rating: React.PropTypes.string.isRequired,
+        votes: React.PropTypes.string.isRequired,
+        cuisines: React.PropTypes.string.isRequired,
+        name: React.PropTypes.string.isRequired,
+        image: React.PropTypes.string.isRequired,
+        address: React.PropTypes.string.isRequired,
+        index: React.PropTypes.string.isRequired,
+        id: React.PropTypes.string.isRequired,
+        change: React.PropTypes.string.isRequired,
+        detail: React.PropTypes.string.isRequired,
+        resid: React.PropTypes.string.isRequired,
+        url: React.PropTypes.string.isRequired
+};
 module.exports = MyCard;
