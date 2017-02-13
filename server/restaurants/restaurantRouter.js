@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
     resCtrl.viewRestaurant(req, res);
 });
 
-router.patch('/update/:id', (req, res) => {
+router.put('/update', (req, res) => {
     resCtrl.updateRestaurant(req, res);
 });
 

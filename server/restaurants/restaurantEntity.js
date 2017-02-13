@@ -2,21 +2,22 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-var schema = new mongoose.Schema({
-  _id : String,
+let schema = new mongoose.Schema({
+  _id: String,
   imageurl: String,
   resName: {
-    type:String,
-    unique : true
+    type: String,
+    unique: true
   },
   resCuisines: String,
-  resAddress: {type:String},
+  resAddress: {type: String},
   resRating: String,
-  resVotes: String
+  resVotes: String,
+  comments: {type: String, default: ''}
 });
 
-var restaurant = mongoose.model('restaurant', schema);
+let Restaurant = mongoose.model('restaurant', schema);
 
 module.exports = {
-    restaurant
-}
+    Restaurant
+};

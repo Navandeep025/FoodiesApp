@@ -1,29 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button,Icon } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
-class  ButtonComp extends React.Component {
+class ButtonComp extends React.Component {
   constructor() {
     super();
-    this.changeFav=this.changeFav.bind(this);
+    this.changeFav = this.changeFav.bind(this);
     this.state = {
-      status : "Add Favourite"
-    }
+      status: 'Add Favourite'
+    };
     this.properButton = this.properButton.bind(this);
     this.refresh = this.refresh.bind(this);
   }
   componentDidMount() {
    this.properButton();
  }
- properButton(){
-   if(this.props.detail === "main"){
+ properButton() {
+   if(this.props.detail === 'main') {
      this.setState({
-       status : "Add Favourite"
+       status: 'Add Favourite'
      });
      console.log('inside main');
-   }else if(this.props.detail === "fav"){
+   }else if(this.props.detail === 'fav') {
      this.setState({
-       status : "Remove Favourite"
+       status: 'Unfavourite'
      });
      console.log(this.props.detail);
    }
@@ -33,7 +32,7 @@ class  ButtonComp extends React.Component {
     if(this.props.detail === "main"){
       if(this.state.status === "Add Favourite"){
         this.setState({
-          status : "Remove Favourite"
+          status : "Unfavourite"
         });
         this.save();
       }else{
@@ -47,6 +46,12 @@ class  ButtonComp extends React.Component {
       this.delete();
     }
   }
+
+  updateFav() {
+      console.log('inside update');
+      this.update();
+  }
+
   save()
   {
     this.props.save();
@@ -58,6 +63,9 @@ class  ButtonComp extends React.Component {
       this.refresh();
     }
   }
+  update(){
+    this.props.update();
+  }
   refresh()
   {
     this.props.change();
@@ -67,12 +75,14 @@ class  ButtonComp extends React.Component {
     {
       return (
       <div>
-        <Button color='red' fluid onClick={this.changeFav.bind(this)}>{this.state.status}<Icon className='heartIcon' name='heart' /></Button>
-        <Button color='red' fluid onClick={this.changeFav.bind(this)}>Update<Icon className='heartIcon' name='upload' /></Button>
-      </div>
+        <Button.Group fluid>
+          <Button color='red'  onClick={this.changeFav.bind(this)} className='btnwidth'>{this.state.status}</Button>
+          <Button color='blue'  onClick={this.updateFav.bind(this)}  className='btnwidth'  floated ='left'>Update</Button>
+       </Button.Group>
+        </div>
     );
     }
-    else{
+    else {
     return (
       <div>
         <Button color='red' fluid onClick={this.changeFav.bind(this)}>{this.state.status}<Icon className='heartIcon' name='heart' /></Button>

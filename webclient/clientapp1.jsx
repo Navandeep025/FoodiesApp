@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Child from './components/sample';
 import GrandChild from './components/sample/cards.jsx';
 
@@ -75,7 +74,7 @@ class MainComponent extends React.Component {
 		);
 	}
 }
-// 
+//
 // ReactDOM.render (
 // 	<MainComponent/>, document.getElementById('mountapp')
 // );

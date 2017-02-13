@@ -48,7 +48,7 @@ class MyFavourites extends React.Component{
 		let cards = values.map(function(item) {
 				return (
 			<div>
-					<MyCard resid={item._id} image={item.imageurl} name={item.resName} change={refresh} cuisines={item.resCuisines} address={item.resAddress} rating={item.resRating} votes={item.resVotes} detail="fav"/>
+					<MyCard resid={item._id} image={item.imageurl} name={item.resName} comments={item.comments} change={refresh} cuisines={item.resCuisines} address={item.resAddress} rating={item.resRating} votes={item.resVotes} detail="fav"/>
 			</div>
 			);
 		});
