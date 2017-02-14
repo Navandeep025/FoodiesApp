@@ -2,7 +2,7 @@
 const logger = require('./../../applogger');
 const {user} = require('./userEntity');
 
-var addUser = (req, res) => {
+let addUser = (req, res) => {
   let newUser = new user({
     username : req.body.username,
     password : req.body.password
