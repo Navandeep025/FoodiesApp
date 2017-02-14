@@ -31,7 +31,9 @@ class childComponent extends React.Component {
 
 	render () {
 		return (
+
 			<div>
+				<h1><p className='foodietitle1'>Find the best restaurants, cafés, and bars</p></h1>
   			<Input className='input1 topbar' autoFocus type='text' ref = 'location' placeholder='location...' onChange={this.changeLocation}/>
 	  		<Input className='input2 topbar' type='text' ref = 'cuisine' placeholder='cuisine...'  onChange={this.changeCuisine}/>
 				<Button className='search topbar' onClick={this.clickChange.bind(this)} color='red'>Search</Button>

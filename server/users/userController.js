@@ -53,9 +53,21 @@ var deleteUser = (req, res) => {
   })
 };
 
+var login = (req, res) => {
+   res.json({responseText:'authenticated'});
+};
+
+var logout = (req, res) => {
+  console.log('Session deleted');
+     req.session.destroy();
+     res.send({redirect: '/'});
+}
+
 module.exports = {
   addUser,
   viewUser,
   updateUser,
-  deleteUser
-}
+  deleteUser,
+  login,
+  logout
+};

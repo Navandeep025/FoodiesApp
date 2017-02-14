@@ -105,6 +105,9 @@ class MyCard extends React.Component {
     // if(this.state.comments !== '') {
     //   enteredComment = <p> { this.state.comments } </p>
     // }
+    if(this.props.comments !== ''){
+            enteredComment = <div><strong>Your Comments: </strong>{this.props.comments}</div>
+    }
       return(
       <Card className='cards'>
         <Image src={this.props.image} className='cardImage'/>
@@ -112,8 +115,8 @@ class MyCard extends React.Component {
             <Card.Header>{this.props.name}</Card.Header>
             <Card.Meta>{this.props.cuisines}</Card.Meta>
             <Card.Description className='description'>{this.props.address}</Card.Description>
-            {/* {enteredComment} */}
-            {this.props.comments}
+            <br/><br/>
+            {enteredComment}
         </Card.Content>
         {inputComment}
         <Card.Content extra>
