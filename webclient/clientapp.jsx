@@ -11,6 +11,11 @@ const MainComp = React.createClass({
         return (
             <div>
                 <NavBar/>
+
+
+
+
+                
                 <br/><br/><br/><br/> {this.props.children}
             </div>
         );
