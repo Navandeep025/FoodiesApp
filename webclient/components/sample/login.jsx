@@ -16,7 +16,7 @@ handlePassword: function(e)
 LoginUser: function()
 {
  $.ajax({
-   url:"http://localhost:3000/users/login",
+   url:"/users/login",
    type: 'POST',
    datatype: 'JSON',
    data:{username :this.state.username,password:this.state.password},

@@ -30,7 +30,7 @@ class MyCard extends React.Component {
     };
     console.log(JSON.stringify(resdata));
     $.ajax({
-      url: 'http://localhost:3000/restaurants/add',
+      url: '/restaurants/add',
       type: 'POST',
       data: resdata,
       success: function(data) {
@@ -48,7 +48,7 @@ class MyCard extends React.Component {
     };
     console.log(this.props.resid);
     $.ajax({
-      url: 'http://localhost:3000/restaurants/delete',
+      url: '/restaurants/delete',
       type: 'DELETE',
       data: dataid,
       success: function(data) {
@@ -70,7 +70,7 @@ class MyCard extends React.Component {
     console.log(this.props.resid);
     console.log(this.state.comments);
     $.ajax({
-      url: 'http://localhost:3000/restaurants/update',
+      url: '/restaurants/update',
       type: 'PUT',
       data: dataid,
       success: function(data) {

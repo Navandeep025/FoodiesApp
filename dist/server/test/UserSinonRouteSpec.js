@@ -5,7 +5,7 @@ const sinonMongoose = require('sinon-mongoose');
 const expect = require('chai').expect;
 const app = require('../../bin/www');
 const Users = require('../users/userEntity').user;
-const url = supertest('http://localhost:3000/users');
+const url = supertest('/users');
 
 describe('Users CRUD Testing using sinon',()=>{
 

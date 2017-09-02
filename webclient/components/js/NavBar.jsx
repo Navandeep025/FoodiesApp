@@ -7,7 +7,7 @@ class MenuExampleContentProp extends Component {
     handleItemClick = (e, {name}) => this.setState({activeItem: name})
     logoutCall() {
         $.ajax({
-            url: 'http://localhost:3000/users/logout',
+            url: '/users/logout',
             type: 'GET',
             // datatype: 'JSON',
             // data:{username :this.state.username,password:this.state.password},
