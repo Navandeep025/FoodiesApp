@@ -45,7 +45,7 @@ LoginUser: function()
   //       <input className="btn btn-primary btn-block" onClick={this.LoginUser} type="submit" value="Login" />
   //  </div>
 <div>
-  <h1><p className='foodietitle'>A Foodies App made by foodies for foodies</p></h1>
+  <h1><p className='foodietitle'>A Foodies App made by foodies</p></h1>
    <div className='formAlign'>
      <h2>Login</h2>
      <Form>
