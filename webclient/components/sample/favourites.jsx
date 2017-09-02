@@ -15,7 +15,7 @@ class MyFavourites extends React.Component{
 
   getFavourites() {
     $.ajax({
-			 url:"http://localhost:8080/restaurants/",
+			 url:"http://localhost:3000/restaurants/",
 			 type:'GET',
 			 beforeSend: function (request)
 									 {

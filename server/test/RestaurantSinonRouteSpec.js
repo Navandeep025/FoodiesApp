@@ -5,7 +5,7 @@ const sinonMongoose = require('sinon-mongoose');
 const expect = require('chai').expect;
 const app = require('../../bin/www');
 const Restaurants = require('../restaurants/restaurantEntity').Restaurant;
-const url = supertest('http://localhost:8080/restaurants');
+const url = supertest('http://localhost:3000/restaurants');
 
 describe('Restaurant CRUD Testing using sinon',()=>{
 

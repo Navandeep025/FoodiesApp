@@ -4,7 +4,7 @@
 //
 // const app = require('../bin/www');
 // const restaurants = require('../server/restaurant/restaurantEntity');
-// const url = supertest('http://localhost:8080/restaurant');
+// const url = supertest('http://localhost:3000/restaurant');
 //
 // const restaurantObjects = [{
 //   _id: new ObjId(),

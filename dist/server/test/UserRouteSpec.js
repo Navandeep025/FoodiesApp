@@ -4,7 +4,7 @@
 //
 // const app = require('../bin/www');
 // const user = require('../server/users/userEntity');
-// const url = supertest('http://localhost:8080/users');
+// const url = supertest('http://localhost:3000/users');
 //
 // const userObjects = [{
 //   _id: new ObjId(),
