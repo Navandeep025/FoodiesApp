@@ -1,4 +1,4 @@
-# Zynla
+# Foodies App
 Relevance through collaborative search
 
 Zynla is a collaborative search engine, so that you can search as a team to access relevant documents
