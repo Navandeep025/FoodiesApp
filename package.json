@@ -1,6 +1,7 @@
 {
   "name": "Zynla",
   "version": "1.0.0",
+  "main": "server/bin/www.js",
   "scripts": {
     "test": "mocha $(find server/test -name '*.js')",
     "functest": "mocha $(find server/test -name '*.js')",
